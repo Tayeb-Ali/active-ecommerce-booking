@@ -1,0 +1,39 @@
+{
+    "name": "Booking System",
+
+    "unique_identifier": "booking_system",
+
+    "version": "1.0",
+
+    "minimum_item_version": "3.6",
+
+    "addon_banner": "booking_system.png",
+
+    "directory": [{
+        "name": ["resources/views/booking"]
+    }],
+
+    "sql_file": "booking.sql",
+
+    "files": [{
+            "root_directory": "addons/booking_system/views/booking/index.blade.php",
+            "update_directory": "resources/views/booking/index.blade.php"
+        },
+        {
+            "root_directory": "addons/booking_system/controllers/BookingController.php",
+            "update_directory": "app/Http/Controllers/BookingController.php"
+        },
+        {
+            "root_directory": "addons/booking_system/Models/Booking.php",
+            "update_directory": "app/Models/Booking.php"
+        },
+        {
+            "root_directory": "addons/booking_system/routes/booking.php",
+            "update_directory": "routes/booking.php"
+        },
+        {
+            "root_directory": "addons/booking_system/assets/booking_system.jpg",
+            "update_directory": "public/booking_banner.jpg"
+        }
+    ]
+}
