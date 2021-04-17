@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Builder;
+use App\User;
+use Eloquent;
+//use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\Banner
@@ -14,11 +17,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $booking_day
  * @property string|null $booking_note
  * @property string|null $booking_status
- * @property \Illuminate\Support\Carbon $created_at
- * @property \Illuminate\Support\Carbon $updated_at
- * @mixin \Eloquent
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ * @mixin Eloquent
  */
-
 class Booking extends Model
 {
     public $table = 'bookings';
@@ -32,5 +34,10 @@ class Booking extends Model
         'booking_time', 'booking_day', 'booking_note', 'booking_status', 'user_id'
     ];
 
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 
 }

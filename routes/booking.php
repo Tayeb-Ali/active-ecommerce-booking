@@ -1,8 +1,4 @@
 <?php
 
-Route::resource('/booking', 'BookingController');
-
-//Admin
-Route::group(['prefix' =>'admin', 'middleware' => ['auth', 'admin']], function(){
-	Route::resource('/booking', 'BookingController');
-});
+Route::get('/booking', 'BookingController@index')->name('booking.index');
+Route::post('/booking', 'BookingController@store')->name('booking.store');

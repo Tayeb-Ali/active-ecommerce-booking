@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use Illuminate\Http\Request;
-use App\BusinessSetting;
 use App\User;
 use Session;
 use Auth;
@@ -13,20 +13,18 @@ class BookingController extends Controller
 {
     public function index()
     {
-        if (Auth::user()->user_type == 'admin' || Auth::user()->user_type == 'staff') {
-            return view('booking.index');
+        if (Auth::user()) {
+            $booking = Booking::with('user')->get();
+            $user = User::all();
+            return view('booking.index', compact('booking', 'user'));
         }
-        else {
-            $booking_activation = BusinessSetting::where('type', 'booking_activation_for_seller')->first();
-            if ($booking_activation != null && $booking_activation->value == 1) {
-                return view('booking.index');
-            }
-            else {
-                flash(translate('Booking is disable for Sellers!!!'))->error();
-                return back();
-            }
-        }
+        return redirect('/');
     }
 
 
+    public function store(Request $request)
+    {
+        $booking = Booking::create($request->all());
+        return redirect(route('booking.index'));
+    }
 }

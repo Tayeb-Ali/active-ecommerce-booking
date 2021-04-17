@@ -33,7 +33,9 @@ CREATE TABLE `bookings` (
   `booking_time` varchar(6) NOT NULL,
   `booking_day` date NOT NULL,
   `booking_note` text DEFAULT NULL,
-  `booking_status` int(1) NOT NULL DEFAULT 1
+  `booking_status` int(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
