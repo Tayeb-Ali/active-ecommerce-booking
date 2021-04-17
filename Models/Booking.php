@@ -21,6 +21,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
+    public $table = 'bookings';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -29,4 +31,6 @@ class Booking extends Model
     protected $fillable = [
         'booking_time', 'booking_day', 'booking_note', 'booking_status', 'user_id'
     ];
+
+
 }

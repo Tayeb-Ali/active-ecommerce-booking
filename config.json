@@ -13,7 +13,7 @@
         "name": ["resources/views/booking"]
     }],
 
-    "sql_file": "booking.sql",
+    "sql_file": "bookings.sql",
 
     "files": [{
             "root_directory": "addons/booking_system/views/booking/index.blade.php",
