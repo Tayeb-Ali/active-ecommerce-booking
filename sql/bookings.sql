@@ -38,6 +38,22 @@ CREATE TABLE `bookings` (
   `updated_at` timestamp NULL DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+--
+-- Table structure for table `middlewares`
+--
+
+CREATE TABLE `middlewares` (
+  `id` int(11) NOT NULL,
+  `middleware_name` varchar(191) NOT NULL,
+  `middleware_path` varchar(191) NOT NULL,
+  `middleware_group` varchar(90) NOT NULL,
+  `middleware_status` int(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
 --
 -- Indexes for dumped tables
 --
@@ -46,6 +62,11 @@ CREATE TABLE `bookings` (
 -- Indexes for table `bookings`
 --
 ALTER TABLE `bookings`
+  ADD PRIMARY KEY (`id`);
+--
+-- Indexes for table `middlewares`
+--
+ALTER TABLE `middlewares`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -56,6 +77,12 @@ ALTER TABLE `bookings`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+--
+-- AUTO_INCREMENT for table `middlewares`
+--
+ALTER TABLE `middlewares`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
